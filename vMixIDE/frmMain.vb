@@ -1,6 +1,5 @@
 ﻿Imports System.IO
 Imports System.Net.Http
-Imports System.Reflection
 Imports System.Text.Json
 
 Public Class frmMain
@@ -35,7 +34,6 @@ Public Class frmMain
       .AlwaysShowTooltip = True,
       .AutoClose = False
     }
-    Dim myAssembly As System.Reflection.Assembly = Assembly.GetEntryAssembly
     Dim items As New List(Of AutocompleteItem)
     For ustCnt As UShort = 0 To vMixFuncList.Count - 1
       items.Add(New MethodAutocompleteItem2("vmix." & vMixFuncList(ustCnt).function))
