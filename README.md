@@ -20,7 +20,7 @@ Below, you can see...
 2. A value is assigned
 3. Type "vmix."
 
-This action brings all the vMix functions listed on the following github site [url]https://github.com/jensstigaard/vmix-function-list[/url]
+This action brings all the vMix functions listed on vmix-function-list
 ![Autocomplete](https://user-images.githubusercontent.com/897014/211828175-d6629bf6-12a0-445d-80ed-e30a282fd4d4.png)
 
 When selecting a function, SetText for this example, the system converts the line with the expression that vMix needs to work as seen in the following image.
