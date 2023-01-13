@@ -27,6 +27,17 @@ Public Class frmMain
       IO.File.WriteAllText(Application.StartupPath & "vMixFuncList.json", strJSon.Result.Replace("Duraion", "Duration").Replace("SelectName", "SelectedName"))
     End If
     vMixFuncList = JsonSerializer.Deserialize(Of List(Of vMixScripting))(File.ReadAllText(Application.StartupPath & "vMixFuncList.json"))
+    vMixFuncList.Sort(Function(x As vMixScripting, y As vMixScripting)
+                        If (x.category & "&" & x.function) Is Nothing AndAlso (y.category & "&" & y.function) Is Nothing Then
+                          Return 0
+                        ElseIf (x.category & "&" & x.function) Is Nothing Then
+                          Return -1
+                        ElseIf (y.category & "&" & y.function) Is Nothing Then
+                          Return 1
+                        Else
+                          Return (x.category & "&" & x.function).CompareTo((y.category & "&" & y.function))
+                        End If
+                      End Function)
     vMixScriptList = JsonSerializer.Deserialize(Of List(Of vMixScripting))(File.ReadAllText(Application.StartupPath & "vMixScriptList.json"))
     popupMenu = New AutocompleteMenu(txtIDE) With {
       .SearchPattern = "[\w\.]",
